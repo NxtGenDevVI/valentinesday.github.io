@@ -110,6 +110,14 @@
             margin-top: 20px;
         }
 
+        .celebration-gif {
+            display: none;
+            margin-top: 30px;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
+        }
+
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
@@ -163,8 +171,10 @@
         </div>
 
         <div class="celebration" id="celebration">
-            🎉 YAY! 🎉
+            🎉 HELL YEAH! 🎉
         </div>
+        
+        <img src="https://tenor.com/n9B01HjuDt3.gif" alt="Celebration" class="celebration-gif" id="celebrationGif">
     </div>
 
     <script>
@@ -182,6 +192,7 @@
             
             // Show celebration
             celebration.style.display = 'block';
+            document.getElementById('celebrationGif').style.display = 'block';
             
             // Make hearts rain
             makeHeartsRain();

@@ -22,7 +22,6 @@
             position: relative;
         }
 
-        /* Floating hearts background */
         .heart-bg {
             position: absolute;
             font-size: 30px;
@@ -128,7 +127,6 @@
             }
         }
 
-        /* Falling hearts */
         .falling-heart {
             position: fixed;
             top: -50px;
@@ -152,7 +150,6 @@
     </style>
 </head>
 <body>
-    <!-- Background floating hearts -->
     <div class="heart-bg" style="top: 10%; left: 10%;">💗</div>
     <div class="heart-bg" style="top: 20%; left: 80%; animation-delay: 2s;">💕</div>
     <div class="heart-bg" style="top: 60%; left: 15%; animation-delay: 4s;">💖</div>
@@ -185,21 +182,16 @@
         const question = document.getElementById('question');
         const buttonContainer = document.getElementById('buttonContainer');
 
-        // Yes button functionality
         yesBtn.addEventListener('click', () => {
-            // Hide buttons and question
             buttonContainer.classList.add('hidden');
             question.classList.add('hidden');
             
-            // Show celebration
             celebration.style.display = 'block';
             document.getElementById('celebrationGif').style.display = 'block';
             
-            // Make hearts rain
             makeHeartsRain();
         });
 
-        // No button runs away from cursor
         noBtn.addEventListener('mouseenter', (e) => {
             moveButton();
         });
@@ -212,14 +204,12 @@
             const container = buttonContainer.getBoundingClientRect();
             const button = noBtn.getBoundingClientRect();
             
-            // Calculate random position within reasonable bounds
             const maxX = window.innerWidth - button.width - 100;
             const maxY = window.innerHeight - button.height - 100;
             
             const randomX = Math.random() * maxX;
             const randomY = Math.random() * maxY;
             
-            // Position relative to viewport
             noBtn.style.position = 'fixed';
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
@@ -227,8 +217,8 @@
 
         function makeHeartsRain() {
             const hearts = ['💕', '💖', '💗', '💝', '💘', '❤️', '💓'];
-            const duration = 5000; // Rain for 5 seconds
-            const interval = 100; // Create new heart every 100ms
+            const duration = 5000;
+            const interval = 100;
             
             let elapsed = 0;
             const rainInterval = setInterval(() => {
@@ -237,7 +227,6 @@
                     return;
                 }
                 
-                // Create 3 hearts at once for more effect
                 for (let i = 0; i < 3; i++) {
                     createFallingHeart();
                 }
@@ -255,7 +244,6 @@
             
             document.body.appendChild(heart);
             
-            // Remove heart after animation
             setTimeout(() => {
                 heart.remove();
             }, 5000);
